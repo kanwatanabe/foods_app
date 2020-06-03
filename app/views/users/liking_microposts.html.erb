@@ -1,0 +1,14 @@
+<div class="container text-center">
+  <%=image_tag @user.image.url, size: '300x225',class:"rounded-circle mt-5" if @user.image?%><br/>
+    <h1 class="mt-1"><%= @user.name %></h1><br/>
+
+      <div class="container mb-5">
+
+        <%= render 'shared/stats' %>
+
+        <%= render 'users/follow_form' if user_signed_in? %>
+
+   <h3><%= @title %></h3>
+   
+   <%= render 'static_pages/home_microposts' %>
+</div>

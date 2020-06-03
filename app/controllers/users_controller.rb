@@ -65,6 +65,14 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def liking
+    @title = '「いいね」した投稿'
+    @user  = User.find(params[:id])
+    #いいねした投稿を取得
+    @microposts = current_user.like_microposts.page(params[:page]).per(9)
+    render 'liking_microposts'
+  end
+
   private
 
   # beforeアクション
