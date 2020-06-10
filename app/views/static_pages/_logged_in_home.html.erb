@@ -1,31 +1,30 @@
-
 <!--ログイン後の画面-->
-<div class =row>
-<div class ="container pt-5 col-xs-12">
-  <div class="jumbotron">
-   <%= link_to "#{current_user.name}さん", user_path(current_user),class: 'display-4 text-dark'%>
-   <p class="lead">あなたのお気に入りの料理をみんなで共有しよう。そうすれば世界が広がるはずです。</p>
- </div>
-</div>
-   
-   <div class="container mt-5">
+<div class=row>
+  <div class="container pt-5 col-xs-12">
+    <div class="jumbotron">
+      <%= link_to "#{current_user.name}さん", user_path(current_user),class: 'display-4 text-dark'%>
+      <p class="lead">あなたのお気に入りの料理をみんなで共有しよう。そうすれば世界が広がるはずです。</p>
+    </div>
+  </div>
 
-     <h1 class="text-center pb-3">Food Phots</h1>
-      <!--検索機能-->
-       <div class ="text-center">
-        <%= search_form_for(@q,url: static_pages_home_path, method: :get) do |f| %>
-        <%= f.search_field :content_or_tags_name_cont, placeholder: "キーワードで検索" %>
-          <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
-           <i class="fas fa-search"></i>
-          <% end %>
-       <%end%>
-       
-       <%= link_to "タグ詳細", static_pages_index_path, class: 'text-dark' %>
+  <div class="container mt-5">
 
-      </div>
+    <h1 class="text-center pb-3">Food Phots</h1>
+    <!--検索機能-->
+    <div class="text-center">
+      <%= search_form_for(@q,url: static_pages_home_path, method: :get) do |f| %>
+      <%= f.search_field :content_or_tags_name_cont, placeholder: "キーワードで検索" %>
+      <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
+      <i class="fas fa-search"></i>
+      <% end %>
+      <%end%>
 
-    <div class = "mt-5">
+      <%= link_to "タグ詳細", static_pages_index_path, class: 'text-dark' %>
+
+    </div>
+
+    <div class="mt-5">
       <%=render "home_microposts" %>
     </div>
-   </div>
-   </div>
+  </div>
+</div>

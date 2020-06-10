@@ -3,43 +3,45 @@
   <div class="row">
     <style>
       #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+        float: left;
+        margin-right: 10px;
+        font-size: 1.7em;
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        padding-top: 9px;
+        font-weight: bold;
+
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
 
 
-}
-    </style>  
+      }
+    </style>
 
     <% if user_signed_in? %>
     <!--ログイン後の画面-->
 
     <div class="col-md-8">
       <%= link_to "foods app", root_path , id: "logo" %>
-    </div>  
+    </div>
     <div class="col-md-1">
       <%= link_to users_path, id: "logo" do %>
-       <i class="fas fa-users"></i>
+      <i class="fas fa-users"></i>
       <% end %>
     </div>
 
     <div class="col-md-1">
       <%= link_to new_micropost_path, id: "logo" do %>
-       <i class="fas fa-paper-plane"></i>
+      <i class="fas fa-paper-plane"></i>
       <% end %>
     </div>
 
     <div class="dropdown col-md-2">
-      <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         メニュー
       </a>
 
@@ -52,34 +54,35 @@
         <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
       </div>
     </div>
-      <div class= "container">
-        <%= render 'shared/flash_messages' %>
-      </div>
+    <div class="container">
+      <%= render 'shared/flash_messages' %>
+    </div>
 
-<% else %>
-<div class="col-md-10">
+    <% else %>
+    <div class="col-md-10">
       <%= link_to "foods app", root_path , id: "logo" %>
     </div>
 
-<div class="dropdown col-md-2">
-  <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    メニュー
-  </a>
+    <div class="dropdown col-md-2">
+      <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        メニュー
+      </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
-    <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
-    <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
+        <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
+        <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= render 'shared/flash_messages' %>
+    </div>
+
+    <%end%>
+
+    <p id="top"></p>
+
   </div>
-</div>
-
-  <div class= "container"> 
-    <%= render 'shared/flash_messages' %>
-  </div>
-
-<%end%>
-
-<p id="top"></p>
-
-</div>
 </div>

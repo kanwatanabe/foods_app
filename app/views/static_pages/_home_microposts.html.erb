@@ -1,36 +1,37 @@
 <div class="row">
-<div class="col-md-12">
-<div class="card-group">
-  <% @microposts.each do |micropost| %>
-<div class="col-md-4">
-  <div class="card mb-4 shadow-sm">
-        <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225'),micropost if micropost.picture? %>
-    <div class="card-body">
-      <p class="card-content"><%= micropost.content %></p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <%= link_to micropost.user.name, micropost.user ,class: 'text-dark ml-2 mt-1 ml-sm-0',role: 'button'%>
-          
-          <!--いいね機能を追加-->
-            <span class="float-right ml-2 d-none d-sm-block" id="micropost-<%= micropost.id %>">
-              <%= render "likes/like", micropost: micropost %>
-            </span>
-          <!-- ------------------------------------------------  -->
+  <div class="col-md-12">
+    <div class="card-group">
+      <% @microposts.each do |micropost| %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225'),micropost if micropost.picture? %>
+          <div class="card-body">
+            <p class="card-content"><%= micropost.content %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <%= link_to micropost.user.name, micropost.user ,class: 'text-dark ml-2 mt-1 ml-sm-0',role: 'button'%>
 
-            <span class="ml-4 mt-1 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
-              
+                <!--いいね機能を追加-->
+                <span class="float-right ml-2 d-sm-block" id="micropost-<%= micropost.id %>">
+                  <%= render "likes/like", micropost: micropost %>
+                </span>
+                <!-- ------------------------------------------------  -->
+
+                <span
+                  class="ml-4 mt-1 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
+
+              </div>
+            </div>
+
+            <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
+
+          </div>
         </div>
       </div>
-  
-      <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
-
+      <% end %>
     </div>
+
+    <%= paginate @microposts %>
+
   </div>
-</div>
-<% end %>
-</div>
-
-<%= paginate @microposts %>
-
-</div>
 </div>
