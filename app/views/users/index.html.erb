@@ -1,38 +1,38 @@
 <%= provide(:title, "ユーザー") %>
 <div class="text-center">
   <h1 class="font-weight-bold mt-5">ユーザー検索</h1>
-  
+
   <!--検索機能-->
-  <div class ="mt-5">
+  <div class="mt-5">
     <%= search_form_for @q do |f| %>
-      <%= f.search_field :name_cont, placeholder: "ユーザー名で検索" %>
-       <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
-        <i class="fas fa-search"></i>
-       <% end %>
+    <%= f.search_field :name_cont, placeholder: "ユーザー名で検索" %>
+    <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
+    <i class="fas fa-search"></i>
+    <% end %>
     <%end%>
   </div>
 
-<div class="container mt-5">
-  <div class="row">
-  <div class="col-md-12">
-  <div class="card-group">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-group">
 
-  <% @users.each do |user| %>
-     <!--adminユーザーを表示しない-->
-    <% unless user.admin? %>
-      <div class="col-md-3">
-        <div class="card mb-4 shadow-sm">
-          <%=image_tag user.image.url, size: '300x200',class:"rounded bd-placeholder-img card-img-top" if user.image? %>
+          <% @users.each do |user| %>
+          <!--adminユーザーを表示しない-->
+          <% unless user.admin? %>
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <%=image_tag user.image.url, size: '300x200',class:"rounded bd-placeholder-img card-img-top" if user.image? %>
 
-          <%= link_to "@#{user.name}", user,class: 'btn text-dark ml-2 ml-sm-0',role: 'button' %>
+              <%= link_to "@#{user.name}", user,class: 'btn text-dark ml-2 ml-sm-0',role: 'button' %>
 
+            </div>
+          </div>
+          <% end %>
+          <% end %>
         </div>
+        <%= paginate @users %>
       </div>
-    <% end %>
-  <% end %>
- </div>
-<%= paginate @users %>
-</div>
-</div>
-</div>
+    </div>
+  </div>
 </div>

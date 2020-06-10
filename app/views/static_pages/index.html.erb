@@ -2,23 +2,23 @@
 
 <div class="container mt-5">
   <h1 class="text-center pb-3">Trend!!</h1>
-  
-  <div class = "text-center">
+
+  <div class="text-center">
     <%= render 'shared/tag_count', tag_list: @tags %>
   </div>
 
-  
-  <!--検索機能-->
-       <div class ="text-center mt-5">
-        <%= search_form_for(@q,url: static_pages_index_path, method: :get) do |f| %>
-        <%= f.search_field :tags_name_cont, placeholder: "タグで検索" %>
-          <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
-           <i class="fas fa-search"></i>
-          <% end %>
-       <%end%>
 
-  <div class = "mt-5">
+  <!--検索機能-->
+  <div class="text-center mt-5">
+    <%= search_form_for(@q,url: static_pages_index_path, method: :get) do |f| %>
+    <%= f.search_field :tags_name_cont, placeholder: "タグで検索" %>
+    <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
+    <i class="fas fa-search"></i>
+    <% end %>
+    <%end%>
+
+    <div class="mt-5">
       <%=render "home_microposts" %>
     </div>
 
-<div>
+    <div>

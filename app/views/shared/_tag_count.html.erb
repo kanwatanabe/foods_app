@@ -1,4 +1,4 @@
 <% tag_list.each do |tag| %>
- <%= link_to tag, static_pages_index_path(tags_name: tag.name),class: 'badge badge-secondary' %>
- <%= "#{tag.taggings_count}回" %>
+<%= link_to tag, static_pages_index_path(tags_name: tag.name),class: 'badge badge-secondary' %>
+<%= "#{tag.taggings_count}回" %>
 <% end %>

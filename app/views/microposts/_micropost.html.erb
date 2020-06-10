@@ -1,28 +1,27 @@
-        
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-              <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225') ,micropost_path(micropost.id) %>
+            <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225') ,micropost_path(micropost.id) %>
             <div class="card-body">
               <p class="card-content"><%= micropost.content %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to micropost.user.name, micropost.user ,class: 'btn text-dark ml-2 ml-sm-0',role: 'button'%>
-                  
+
                   <% if current_user?(micropost.user) %>
-                    <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
-                      <i class="fas fa-trash"></i>
-                    <% end %>
+                  <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
+                  <i class="fas fa-trash"></i>
+                  <% end %>
                   <% end %>
                   <!--いいね機能を追加-->
                   <span class="float-right ml-2 d-sm-block d-none" id="micropost-<%= micropost.id %>">
-                   <%= render "likes/like", micropost: micropost %>
+                    <%= render "likes/like", micropost: micropost %>
                   </span>
                   <!-- ------------------------------------------------  -->
                 </div>
-                <span class="ml-4 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
+                <span
+                  class="ml-4 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
               </div>
               <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
             </div>
           </div>
         </div>
-        

@@ -2,16 +2,16 @@
 <div class="text-center">
   <h1 class="font-weight-bold mt-5">新しい投稿</h1>
   <div class="form-group mt-5">
-   <%= form_for(@micropost) do |f| %>
-   <%= render 'shared/error_messages', model: f.object %>
-   <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'  %>
-  </span>
-   <div class="field">
-     <%= f.text_area :content, placeholder: "コメントを入力してください" ,class:"form-area border mt-2", size: "58x8" %><br />
-     <%= f.text_field :tag_list, value: @micropost.tag_list.join(","), placeholder: "タグを入力してください" ,class:"form-area border mt-2", size: "58x1" %><br />
-   <%= f.submit "投稿する", class: "btn btn-secondary mt-2" %>
-   <% end %>
+    <%= form_for(@micropost) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'  %>
+    </span>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "コメントを入力してください" ,class:"form-area border mt-2", size: "58x8" %><br />
+      <%= f.text_field :tag_list, value: @micropost.tag_list.join(","), placeholder: "タグを入力してください" ,class:"form-area border mt-2", size: "58x1" %><br />
+      <%= f.submit "投稿する", class: "btn btn-secondary mt-2" %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

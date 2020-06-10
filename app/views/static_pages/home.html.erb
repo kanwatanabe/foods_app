@@ -1,10 +1,10 @@
 <% provide(:title, "Home") %>
 <% if user_signed_in? %>
 
-  <%=render "logged_in_home" %>
+<%=render "logged_in_home" %>
 
 <% else %>
 
-  <%=render "not__logged_in_home" %>
+<%=render "not__logged_in_home" %>
 
 <% end %>
