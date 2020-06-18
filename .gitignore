@@ -28,3 +28,14 @@
 
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
