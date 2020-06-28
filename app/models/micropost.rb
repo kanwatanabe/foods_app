@@ -2,6 +2,7 @@
 
 class Micropost < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
   # 投稿の順序を調整
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
