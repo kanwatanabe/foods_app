@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12 text-center">
-      <%= image_tag @micropost.picture.url, class:'bd-placeholder-img card-img-top' , size: '700x700' if @micropost.picture? %><br />
+      <%= image_tag @micropost.picture.url, class:'img-fluid' , size: '700x700' if @micropost.picture? %><br />
 
       <div class="mt-5">
         <%= @micropost.content %><br />
@@ -11,6 +11,41 @@
         </span>
         <!-- ------------------------------------------------  -->
       </div>
+
+
+      <%# コメント欄　追記ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+      <div class="text-center">
+        <h5 class="font-weight-bold mt-5">コメント</h5>
+
+
+        <% @comments.each do |comment| %>
+        <div class="col-12 text-left">
+          <%= link_to image_tag(comment.user.image.url, size:"40x40", class:"avatar-type-circle"), comment.user %>
+          <%= comment.user.name %>
+          <%= comment.content %>
+          <% if comment.user == current_user %>
+          <%= link_to micropost_comment_path(@micropost, comment), method: :delete do %>
+          <i class="fas fa-trash-alt text-muted"></i>
+          <% end %>
+          <% end %>
+        </div>
+        <% end %>
+
+
+        <% if user_signed_in? %>
+        <div class="form-group mt-5">
+          <%= form_with model: [@micropost, @comment],local: true do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
+          <div class="form-group">
+            <%= f.text_area :content, placeholder: "コメントを入力してください" ,class:"form-area border mt-2 ", size: "58x2",id:"comment" %><br />
+            <%= f.submit "コメントする", class: "btn btn-secondary mt-2" %>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+
+      </div>
+      <%# --------------------------------------------------------------------------------------- %>
 
       <div class="mt-5">
         <%= link_to "戻る", :back ,class: "btn btn-secondary btn-lg" ,tabindex: "-1", role: "button" %>
