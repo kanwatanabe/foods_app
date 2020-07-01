@@ -1,0 +1,2 @@
+$("textarea").val("")
+$("#comments_area").html("<%= escape_javascript(render '/microposts/comments_index', {comments: @micropost.comments.order(created_at: :desc)}) %>");

@@ -1,0 +1,9 @@
+<div class="form-group mt-5">
+    <%= form_with(model: [@micropost, @comment], remote: true) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="form-group">
+        <%= f.text_area :content, placeholder: "コメントを入力してください" ,class:"form-area border mt-2 ", size: "58x2",id:"comment" %><br />
+        <%= f.submit "コメントする", class: "btn btn-secondary mt-2" %>
+    </div>
+    <% end %>
+</div>

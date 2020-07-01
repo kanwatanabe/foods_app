@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
   def show
     @comment = Comment.new
     @micropost = Micropost.find(params[:id])
-    @comments = @micropost.comments
+    @comments = @micropost.comments.order(created_at: :desc)
   end
 
   def create
