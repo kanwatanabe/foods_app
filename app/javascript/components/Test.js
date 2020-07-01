@@ -30,14 +30,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-
-  imgSize:{
-    width: '100%',
-    height: '100%'
-  },
+  
   imgHomeSize:{
     width: '100%',
-    height: '100%',
+    height: 225,
   }
 }));
 
@@ -58,7 +54,7 @@ export default function SimpleModal(props) {
   const body = (
     <div style={modalStyle} className={classes.paper}>
     
-    <img className={classes.imgSize} src={props.picture}/>
+    <img className='img-fluid' src={props.picture}/>
      
     </div>
   );
