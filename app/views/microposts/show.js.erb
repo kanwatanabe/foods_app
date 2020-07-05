@@ -1,0 +1,2 @@
+$("#comments_area").append("<%= escape_javascript(render '/microposts/comments_index', {comments: @micropost.comments.order(created_at: :desc).page(params[:page]).per(5)}) %>")
+$("#comment_more").replaceWith("<%= escape_javascript(link_to_next_page @comments, 'もっと見る', remote: true, class: 'btn btn-secondary', id: 'comment_more') %>")
