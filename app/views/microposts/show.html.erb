@@ -21,6 +21,9 @@
           <%= render '/microposts/comments_index',comments: @comments %>
         </div>
 
+        <%# ページネーション ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー%>
+        <%= link_to_next_page @comments, 'もっと見る', remote: true, class: 'btn btn-secondary', id: 'comment_more' %>
+
         <% if user_signed_in? %>
         <%= render '/microposts/comments_form'%>
         <% end %>
