@@ -5,15 +5,32 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
+    volumes:
+      - mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
 
-  web:
+  app:
     build: .
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec puma -C config/puma.rb
     volumes:
-      - .:/app_name
+      - .:/foods_app
+      - public-data:/foods_app/public
+      - tmp-data:/foods_app/tmp
+      - log-data:/foods_app/log
+    
+  web:
+    build:
+      context: ./nginx
+    volumes:
+      - public-data:/foods_app/public
+      - tmp-data:/foods_app/tmp
     ports:
-      - "3000:3000"
-    links:
-      - db
+      - 80:80
+
+volumes:
+  mysql-data:
+  public-data:
+  tmp-data:
+  log-data:
+
