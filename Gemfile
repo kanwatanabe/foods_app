@@ -86,6 +86,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem 'mysql2', '>= 0.4.4'
 
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.6.0'
