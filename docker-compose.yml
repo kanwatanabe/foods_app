@@ -12,6 +12,7 @@ services:
 
   app:
     build: .
+    command: bundle exec rails assets:precompile
     command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/foods_app

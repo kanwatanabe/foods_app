@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20200621085506) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.integer "micropost_id"
+    t.bigint "user_id"
+    t.bigint "micropost_id"
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20200621085506) do
 
   create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20200621085506) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20200621085506) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
+  create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", collation: "utf8_bin"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
@@ -94,4 +94,7 @@ ActiveRecord::Schema.define(version: 20200621085506) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "microposts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "microposts", "users"
 end

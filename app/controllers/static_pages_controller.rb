@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
     #if params[:tag_name]
       #@microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(9)
     #end
-    @tags = Micropost.tag_counts.group(:name).order('taggings_count DESC').limit(5)
+    @tags = Micropost.tag_counts.group(:id,:name).order('taggings_count DESC').limit(5)
   end
 end
 
