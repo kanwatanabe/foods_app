@@ -4,7 +4,15 @@ FROM ruby:2.6.3
 RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
                        libpq-dev \        
-                       nodejs           
+                       nodejs \        
+                       vim \
+                       default-mysql-client  
+
+#yarn インストール
+RUN curl https://deb.nodesource.com/setup_12.x | bash
+RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y nodejs yarn  
 
 # 作業ディレクトリの作成、設定
 RUN mkdir /foods_app
@@ -23,3 +31,5 @@ ADD . $APP_ROOT
 
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
+
+RUN bundle exec rails assets:precompile RAILS_ENV=production
