@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-ecr: circleci/aws-ecr@6.0.0
   aws-ecs: circleci/aws-ecs@1.1.0
 # jobs:
 #   test:
@@ -80,7 +80,6 @@ orbs:
         #     destination: test-results
 
 workflows:
-  version: 2
   # Nginxのデプロイ 対象外
   # nginx-deploy:
   #   jobs:
