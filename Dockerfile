@@ -32,4 +32,5 @@ ADD . $APP_ROOT
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
 
-RUN bundle exec rails assets:precompile RAILS_ENV=production
+# RUN bundle exec rails assets:precompile RAILS_ENV=production
+RUN rails assets:precompile RAILS_ENV=production
