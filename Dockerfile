@@ -32,5 +32,4 @@ ADD . $APP_ROOT
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
 
-#circle ciエラー修正のためコメントアウト
-# RUN bundle exec rails assets:precompile RAILS_ENV=production
+RUN bundle exec rails assets:precompile RAILS_ENV=production
