@@ -1,5 +1,11 @@
 FROM ruby:2.6.3
 
+ARG AWS_IAM_ACCESS_KEY
+ARG AWS_IAM_ACCESS_KEY_ID
+
+ENV AWS_IAM_ACCESS_KEY $AWS_IAM_ACCESS_KEY
+ENV AWS_IAM_ACCESS_KEY_ID $AWS_IAM_ACCESS_KEY_ID
+
 # 必要なパッケージのインストール
 RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
