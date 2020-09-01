@@ -121,7 +121,9 @@ workflows:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
-          dockerfile: ./Dockerfile --build-arg AWS_IAM_ACCESS_KEY=$AWS_IAM_ACCESS_KEY --build-arg AWS_IAM_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID
+          dockerfile: ./Dockerfile --build-arg AWS_IAM_ACCESS_KEY=$AWS_IAM_ACCESS_KEY \
+                                   --build-arg AWS_IAM_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID \
+                                   --build-arg SECRET_KEY_BASE=$SECRET_KEY_BASE
           repo: rails
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
