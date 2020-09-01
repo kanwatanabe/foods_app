@@ -109,7 +109,7 @@ workflows:
       # - test:
       #    context:
       #     test
-      - aws-ecr/build-and-push-image --build-arg AWS_IAM_ACCESS_KEY=$AWS_IAM_ACCESS_KEY --build-arg AWS_IAM_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID:
+      - aws-ecr/build-and-push-image:
           # テストをパスしたら実行
           # requires:
           #   - test
@@ -121,7 +121,7 @@ workflows:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
-          dockerfile: ./Dockerfile
+          dockerfile: ./Dockerfile --build-arg AWS_IAM_ACCESS_KEY=$AWS_IAM_ACCESS_KEY --build-arg AWS_IAM_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID
           repo: rails
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
