@@ -13,7 +13,7 @@ https://www.foods-app.xyz<br>
 * Nginx, puma
 * AWS (ECS, RDS for MySQL, S3, VPC, Route53, ALB, ACM)
 * Docker,Docker-compose
-* CircleCi
+* CircleCi CI/CD
 * RSpec
 * Bootstrap4,jQuery
 
@@ -24,6 +24,7 @@ https://www.foods-app.xyz<br>
 * ページネーション機能（Kaminari）
 * いいね機能（Ajax)
 * 検索機能（Ransackを使用）
+* タグ機能
 * フォロー・フォロワー機能
 * 単体spec
 

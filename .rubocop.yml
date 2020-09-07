@@ -22,6 +22,7 @@ AllCops:
       - 'spec/**/*'
       - 'script/**/*'
       - !ruby/regexp /old_and_unused\.rb$/
+      - 'node_modules/**/*'
 
   # 日本語でのコメントを許可
 AsciiComments:
@@ -50,3 +51,16 @@ LineLength:
 #代入少なく、関数呼び出し少なく、制御構文少なく 
 Metrics/AbcSize:
   Max: 40
+
+#追記2020/9/7
+# For rubocop < 1.0.0
+Style/HashEachMethods:
+  Enabled: false
+
+# For rubocop < 1.0.0
+Style/HashTransformKeys:
+  Enabled: false
+
+# For rubocop < 1.0.0
+Style/HashTransformValues:
+  Enabled: false
