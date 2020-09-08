@@ -81,6 +81,7 @@ jobs:
           destination: test-results
 
 workflows:
+  version: 2
   # Nginxのデプロイ 対象外
   # nginx-deploy:
   #   jobs:
@@ -107,9 +108,9 @@ workflows:
   # Railsのデプロイ
   rails-deploy:
     jobs:
-      # - test:
-      #    context:
-      #     test
+      - test:
+         context:
+          test
       - aws-ecr/build-and-push-image:
           # テストをパスしたら実行
           requires:
