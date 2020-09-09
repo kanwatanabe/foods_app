@@ -24,6 +24,10 @@ AllCops:
       - 'script/**/*'
       - !ruby/regexp /old_and_unused\.rb$/
       - 'node_modules/**/*'
+      - "public/**/*"
+      - "log/**/*"
+      - "tmp/**/*"
+      - "vendor/**/*"
 
   # 日本語でのコメントを許可
 AsciiComments:
