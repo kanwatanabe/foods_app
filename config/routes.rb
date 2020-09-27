@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
 
+  get 'shops/index'
+
   root 'static_pages#home'
   get 'static_pages/home'
   get 'static_pages/index'

@@ -1,0 +1,57 @@
+<%= form_with url: shops_index_path, method: :get, local: true do |f| %>
+<%= f.text_field :search, placeholder: "キーワードで検索" %>
+
+<%= f.select :area, [["エリア設定",""],
+                    [@area_rests[0]["pref_name"], @area_rests[0]["area_code"]],
+                    [@area_rests[1]["pref_name"], @area_rests[1]["area_code"]],
+                    [@area_rests[2]["pref_name"], @area_rests[2]["area_code"]],
+                    [@area_rests[3]["pref_name"], @area_rests[3]["area_code"]],
+                    [@area_rests[4]["pref_name"], @area_rests[4]["area_code"]],
+                    [@area_rests[5]["pref_name"], @area_rests[5]["area_code"]],
+                    [@area_rests[6]["pref_name"], @area_rests[6]["area_code"]],
+                    [@area_rests[7]["pref_name"], @area_rests[7]["area_code"]],                                         [@area_rests[8]["pref_name"], @area_rests[8]["area_code"]],
+                    [@area_rests[9]["pref_name"], @area_rests[9]["area_code"]],
+                    [@area_rests[10]["pref_name"], @area_rests[10]["area_code"]],
+                    [@area_rests[11]["pref_name"], @area_rests[11]["area_code"]],
+                    [@area_rests[12]["pref_name"], @area_rests[12]["area_code"]],
+                    [@area_rests[13]["pref_name"], @area_rests[13]["area_code"]],
+                    [@area_rests[14]["pref_name"], @area_rests[14]["area_code"]],
+                    [@area_rests[15]["pref_name"], @area_rests[15]["area_code"]],
+                    [@area_rests[16]["pref_name"], @area_rests[16]["area_code"]],
+                    [@area_rests[17]["pref_name"], @area_rests[17]["area_code"]],
+                    [@area_rests[18]["pref_name"], @area_rests[18]["area_code"]],
+                    [@area_rests[19]["pref_name"], @area_rests[19]["area_code"]],
+                    [@area_rests[20]["pref_name"], @area_rests[20]["area_code"]],
+                    [@area_rests[21]["pref_name"], @area_rests[21]["area_code"]],
+                    [@area_rests[22]["pref_name"], @area_rests[22]["area_code"]],
+                    [@area_rests[23]["pref_name"], @area_rests[23]["area_code"]],
+                    [@area_rests[24]["pref_name"], @area_rests[24]["area_code"]],
+                    [@area_rests[25]["pref_name"], @area_rests[25]["area_code"]],
+                    [@area_rests[26]["pref_name"], @area_rests[26]["area_code"]],
+                    [@area_rests[27]["pref_name"], @area_rests[27]["area_code"]],
+                    [@area_rests[28]["pref_name"], @area_rests[28]["area_code"]],
+                    [@area_rests[29]["pref_name"], @area_rests[29]["area_code"]],
+                    [@area_rests[30]["pref_name"], @area_rests[30]["area_code"]],
+                    [@area_rests[31]["pref_name"], @area_rests[31]["area_code"]],
+                    [@area_rests[32]["pref_name"], @area_rests[32]["area_code"]],
+                    [@area_rests[33]["pref_name"], @area_rests[33]["area_code"]],
+                    [@area_rests[34]["pref_name"], @area_rests[34]["area_code"]],
+                    [@area_rests[35]["pref_name"], @area_rests[35]["area_code"]],
+                    [@area_rests[36]["pref_name"], @area_rests[36]["area_code"]],
+                    [@area_rests[37]["pref_name"], @area_rests[37]["area_code"]],
+                    [@area_rests[38]["pref_name"], @area_rests[38]["area_code"]],
+                    [@area_rests[39]["pref_name"], @area_rests[39]["area_code"]],
+                    [@area_rests[40]["pref_name"], @area_rests[40]["area_code"]],
+                    [@area_rests[41]["pref_name"], @area_rests[41]["area_code"]],
+                    [@area_rests[42]["pref_name"], @area_rests[42]["area_code"]],
+                    [@area_rests[43]["pref_name"], @area_rests[43]["area_code"]],
+                    [@area_rests[44]["pref_name"], @area_rests[44]["area_code"]],
+                    [@area_rests[45]["pref_name"], @area_rests[45]["area_code"]],
+                    [@area_rests[46]["pref_name"], @area_rests[46]["area_code"]]] %>
+
+
+<%# <%= f.submit "検索する", class: "btn btn-secondary mt-2" %>
+<%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
+<i class="fas fa-search"></i>
+<% end %>
+<% end %>

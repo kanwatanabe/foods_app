@@ -26,6 +26,7 @@ https://www.foods-app.xyz<br>
 * 検索機能（Ransackを使用）
 * タグ機能
 * フォロー・フォロワー機能
+* お店検索（ぐるなびAPI）
 * 単体spec
 
 ## AWS構成図
