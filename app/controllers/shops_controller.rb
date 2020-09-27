@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
     require 'uri'
     require 'net/http'
     require 'json'
-    require 'cgi'
+    require "addressable/uri"
     # require 'active_support'
     # require 'active_support/core_ext'
 
@@ -25,7 +25,7 @@ class ShopsController < ApplicationController
       url << '&area=' << area
     end
 
-    url = CGI.escape(url)
+    url = Addressable::URI.encode(url)
     uri = URI.parse(url)
     json = Net::HTTP.get(uri)
     result = JSON.parse(json)
@@ -35,7 +35,7 @@ class ShopsController < ApplicationController
 
     area_url = 'https://api.gnavi.co.jp/master/PrefSearchAPI/v3/?keyid='
     area_url << api_key << '&lang=ja'
-    area_url = CGI.escape(area_url)
+    area_url = Addressable::URI.encode(area_url)
     area_uri = URI.parse(area_url)
     area_json = Net::HTTP.get(area_uri)
     area_result = JSON.parse(area_json)
