@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
     require 'uri'
     require 'net/http'
     require 'json'
-    require "addressable/uri"
+    require 'addressable/uri'
     # require 'active_support'
     # require 'active_support/core_ext'
 
