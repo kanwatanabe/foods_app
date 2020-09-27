@@ -69,3 +69,7 @@ Style/HashTransformKeys:
 # For rubocop < 1.0.0
 Style/HashTransformValues:
   Enabled: false
+
+MethodLength:
+  CountComments: true
+  Max: 40
