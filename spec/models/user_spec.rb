@@ -68,6 +68,17 @@ RSpec.describe User, type: :model do
       expect(@user.errors).to be_added(:name, :too_long, count: 30)
     end
 
+    it 'profileが1文字以上のユーザーを許可する' do
+      @user.profile = 'a' * 1
+      expect(@user).to be_valid
+    end
+
+    it 'profileが101文字以上のユーザーを許可しない' do
+      @user.profile = 'a' * 101
+      @user.valid?
+      expect(@user.errors).to be_added(:profile, :too_long, count: 100)
+    end
+
     it 'emailが255文字以下のユーザーを許可する' do
       @user.email = 'a' * 245 + '@sample.jp'
       expect(@user).to be_valid
