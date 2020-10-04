@@ -30,6 +30,8 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
 
+  validates :profile, length: { maximum: 100 }
+
   mount_uploader :image, ImageUploader
 
   # ユーザーをフォローする

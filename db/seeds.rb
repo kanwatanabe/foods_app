@@ -13,6 +13,7 @@ Faker::Config.locale = :en
     email = "sample#{n+1}@sample.com"
     password = "password"
     User.create!(name:  name,
+                 profile: "#{name}です。たくさんおいしい料理を共有したいです。よろしくお願いします！！",
                  email: email,
                  password:              password,
                  password_confirmation: password,
@@ -22,6 +23,7 @@ end
 
 #ゲスト
 User.create!(name: "ゲスト",
+             profile: "ゲストユーザーです。このサイトを楽しんでいってください！",
              email: "guestt@example.com",
              password: "password",
              password_confirmation: "password",
@@ -29,6 +31,7 @@ User.create!(name: "ゲスト",
             )
 
 User.create!(name: "admin",
+             profile: "管理人です。",
              email: "admin@sample.com",
              password: ENV['ADMIN_PASSWORD'],
              password_confirmation: ENV['ADMIN_PASSWORD'],
