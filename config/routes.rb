@@ -2,6 +2,10 @@
 
 Rails.application.routes.draw do
 
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  delete 'chat/:id' => 'chats#destroy'
+  resources :chats, only: [:create, :index]
+
   get 'shops/index'
 
   root 'static_pages#home'

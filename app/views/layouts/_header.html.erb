@@ -27,13 +27,13 @@
     <div class="col-md-8">
       <%= link_to "foods app", root_path , id: "logo" %>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 d-none d-sm-block">
       <%= link_to users_path, id: "logo" do %>
       <i class="fas fa-users"></i>
       <% end %>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1 d-none d-sm-block">
       <%= link_to new_micropost_path, id: "logo" do %>
       <i class="fas fa-paper-plane"></i>
       <% end %>
@@ -51,8 +51,9 @@
         <%= link_to "新規投稿", new_micropost_path, class: 'dropdown-item' %>
         <%= link_to "ユーザー一覧", users_path, class: 'dropdown-item' %>
         <%= link_to "お店を探す", shops_index_path, class: 'dropdown-item' %>
-        <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'dropdown-item' %>
+        <%= link_to "チャット",  chats_path(current_user),method: :get, class: 'dropdown-item' %>
         <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
+        <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'dropdown-item' %>
       </div>
     </div>
     <div class="container">

@@ -1,0 +1,48 @@
+<div class="container font-weight-bold mt-3">
+    <h3>
+        <%= link_to user_path(@user.id) do %>
+        <%= image_tag @user.image.url, size: '50x50' %>
+        <% end %>
+        <%=@user.name %>
+    </h3>
+
+    <div style="height:400px;overflow: scroll;">
+
+        <% @chats.each do |chat| %>
+
+        <% if chat.user == current_user%>
+        <div class="text-right mt-3">
+            <%= image_tag chat.user.image.url, size: '30x30' %></br>
+            <h4>
+                <span class="badge badge-dark text-wrap">
+                    <%= chat.message %></br>
+                    <%= chat.created_at.strftime("%m月%d日 %H:%M") %>
+                </span>
+            </h4>
+        </div>
+        <% else %>
+        <div class="text-left mt-5">
+            <%= image_tag chat.user.image.url, size: '30x30' %></br>
+            <h4>
+                <span class="badge badge-primary text-wrap">
+                    <%= chat.message %></br>
+                    <%= chat.created_at.strftime("%m月%d日 %H:%M") %>
+                </span>
+            </h4>
+        </div>
+        <% end %>
+
+        <% end %>
+    </div>
+
+    <div class="text-center mt-3">
+        <%= form_with model: @chat do |f| %>
+        <%= f.text_field :message, placeholder: "メッセージを入力" %>
+        <%= f.hidden_field :room_id %>
+        <%= button_tag type: 'submit', class: 'btn mb-1' do%>
+        <i class="far fa-comment-dots fa-2x"></i>
+        <% end %>
+        <%= link_to "戻る", chats_path(current_user),method: :get, class: "text-dark" %>
+        <% end %>
+    </div>
+</div>
