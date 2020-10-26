@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="text-center font-weight-bold mt-5">チャット一覧</h1>
+    <% if @another_user_room.present? %>
+
+    <% @another_user_room.each do |e| %>
+    <div class="row">
+        <div class="card col-11">
+            <%= link_to chat_path(e.user.id) do %>
+            <div class="card-body font-weight-bold text-dark">
+
+                <%= image_tag e.user.image.url, size: '60x60' %>
+                <%= e.user.name %></br>
+
+                <% @chat = e.room.chat_ids.last %>
+                <% if @chat.present? %>
+                <% @chat = Chat.find_by(id: e.room.chat_ids.last) %>
+                <%= @chat.message %>
+                <%= @chat.created_at.strftime("%m月%d日 %H:%M") %>
+                <% else %>
+                <%= @chat = "まだメッセージはありません" %>
+                <% end %>
+
+            </div>
+            <% end %>
+        </div>
+
+        <div class="col-1">
+            <%= link_to chats_path(e.room.id),method: :delete,data: { confirm: "消去してよろしいですか？" } do %>
+            <i class="fas fa-trash" style="color: black;"></i>
+            <% end %>
+        </div>
+    </div>
+
+    <% end %>
+
+    <% else %>
+    <h3 class="text-center font-weight-bold mt-5">まだトークルームはありません</h3>
+    <% end %>
+</div>
