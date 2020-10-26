@@ -1,8 +1,8 @@
 <div class="container">
     <h1 class="text-center font-weight-bold mt-5">チャット一覧</h1>
-    <% if @another_user_room.present? %>
+    <% if @current_user_rooms.present? %>
 
-    <% @another_user_room.each do |e| %>
+    <% @another_user_rooms.each do |e| %>
     <div class="row">
         <div class="card col-11">
             <%= link_to chat_path(e.user.id) do %>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-1">
-            <%= link_to chats_path(e.room.id),method: :delete,data: { confirm: "消去してよろしいですか？" } do %>
+            <%= link_to chat_path(e.room.id),method: :delete,data: { confirm: "消去してよろしいですか？" } do %>
             <i class="fas fa-trash" style="color: black;"></i>
             <% end %>
         </div>
