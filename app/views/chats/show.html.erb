@@ -35,11 +35,13 @@
         <% end %>
     </div>
 
+    <ul id="add"></ul>
+
     <div class="text-center mt-3">
         <%= form_with model: @chat do |f| %>
-        <%= f.text_field :message, placeholder: "メッセージを入力" %>
-        <%= f.hidden_field :room_id %>
-        <%= button_tag type: 'submit', class: 'btn mb-1' do%>
+        <%= f.text_field :message, id: 'message_input', placeholder: "メッセージを入力" %>
+        <%= f.hidden_field :room_id, id: 'room_id' %>
+        <%= button_tag type: 'submit', class: 'btn mb-1',id: 'button' do%>
         <i class="far fa-comment-dots fa-2x"></i>
         <% end %>
         <%= link_to "戻る", chats_path(current_user),method: :get, class: "text-dark" %>

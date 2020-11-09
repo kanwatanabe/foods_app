@@ -55,4 +55,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #actioncable追記
+  config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.url = 'ws://localhost/cable'
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/] 
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
 end
