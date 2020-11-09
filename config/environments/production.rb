@@ -99,5 +99,4 @@ Rails.application.configure do
   config.action_cable.disable_request_forgery_protection = true
   config.action_cable.url = 'http://foods_app/cable'
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/] 
-  config.web_console.whitelisted_ips = '0.0.0.0/0'
 end
