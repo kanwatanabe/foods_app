@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  
 
+  root 'static_pages#home'
+  get 'static_pages/home'
+  get 'static_pages/index'
+  
+  mount ActionCable.server => '/cable'
   get 'chat/:id' => 'chats#show', as: 'chat'
   delete 'chat/:id' => 'chats#destroy'
   resources :chats, only: [:create, :index]
 
   get 'shops/index'
-
-  root 'static_pages#home'
-  get 'static_pages/home'
-  get 'static_pages/index'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
