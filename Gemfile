@@ -120,6 +120,9 @@ group :production do
   gem 'fog-aws'
 
   gem 'mysql2', '>= 0.4.4'
+  
+  #Actioncable追記
+  gem 'redis'
 end
 
 group :production, :staging do
