@@ -8,7 +8,7 @@
             <%= link_to chat_path(e.user.id) do %>
             <div class="card-body font-weight-bold text-dark">
 
-                <%= image_tag e.user.image.url, size: '60x60' %>
+                <%= image_tag e.user.image.url, size: '60x60' if e.user.image?%>
                 <%= e.user.name %></br>
 
                 <% @chat = e.room.chat_ids.last %>
