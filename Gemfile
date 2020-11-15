@@ -121,8 +121,6 @@ group :production do
 
   gem 'mysql2', '>= 0.4.4'
   
-  #Actioncable追記
-  gem 'redis'
 end
 
 group :production, :staging do

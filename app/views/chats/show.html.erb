@@ -1,7 +1,7 @@
 <div class="container font-weight-bold mt-3">
     <h3>
         <%= link_to user_path(@user.id) do %>
-        <%= image_tag @user.image.url, size: '50x50' %>
+        <%= image_tag @user.image.url, size: '50x50' if @user.image?%>
         <% end %>
         <%=@user.name %>
     </h3>
@@ -12,7 +12,7 @@
 
         <% if chat.user == current_user%>
         <div class="text-right mt-3">
-            <%= image_tag chat.user.image.url, size: '30x30' %></br>
+            <%= image_tag chat.user.image.url, size: '30x30' if chat.user.image?%></br>
             <h4>
                 <span class="badge badge-dark text-wrap">
                     <%= chat.message %></br>
@@ -22,7 +22,7 @@
         </div>
         <% else %>
         <div class="text-left mt-5">
-            <%= image_tag chat.user.image.url, size: '30x30' %></br>
+            <%= image_tag chat.user.image.url, size: '30x30' if chat.user.image?%></br>
             <h4>
                 <span class="badge badge-primary text-wrap">
                     <%= chat.message %></br>

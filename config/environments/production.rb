@@ -97,6 +97,6 @@ Rails.application.configure do
   
   #Actioncable 追記
   config.action_cable.disable_request_forgery_protection = true
-  config.action_cable.url = 'http://foods_app/cable'
+  config.action_cable.url = 'wss://foods_app/cable'
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/] 
 end
