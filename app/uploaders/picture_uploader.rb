@@ -2,10 +2,16 @@
 
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  # process resize_to_fill: [700, 700, 'Center']
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+
+  # version :home do
+  #   process resize_to_fit: [300, 225]
+  # end
+
+  # version :show do
+  #   process resize_to_fit: [700, 700]
+  # end
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?

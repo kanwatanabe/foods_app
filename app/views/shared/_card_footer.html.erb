@@ -1,0 +1,21 @@
+<div class="card-footer py-1 d-flex justify-content-end bg-white">
+
+    <%# <%=link_to "コメント#{micropost.comments.count}件" ,micropost, class: 'text-dark' %>
+    <div class="mr-3 d-flex align-items-center">
+        <%=link_to micropost do %>
+        <i class="far fa-comment"></i>
+        <span class="text-dark"><%=micropost.comments.count%></span>
+        <% end %>
+    </div>
+
+    <div class="mr-3 d-flex align-items-center" id="micropost-<%= micropost.id %>">
+        <%= render "likes/like", micropost: micropost %>
+    </div>
+
+    <% if current_user?(micropost.user) %>
+    <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
+    <i class="fas fa-trash"></i>
+    <% end %>
+    <% end %>
+
+</div>
