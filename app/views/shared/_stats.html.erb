@@ -1,19 +1,19 @@
 <% @user ||= current_user %>
-<div class="container mb-5">
+<div class="container mb-3">
 
   <a>
 
-    <%=link_to "#{@user.following.count}フォロー", following_user_path(@user),class: "btn btn-secondary" %>
+    <%=link_to "#{@user.following.count}フォロー", following_user_path(@user),class: "text-muted" %>
 
 
 
 
 
     <span id="followers">
-      <%=link_to "#{@user.followers.count}フォロワー", followers_user_path(@user),class: "btn btn-secondary"%>
+      <%=link_to "#{@user.followers.count}フォロワー", followers_user_path(@user),class: "text-muted"%>
     </span>
 
-    <%=link_to "#{@user.likes.count}いいね", liking_user_path(@user),class: "btn btn-secondary" %>
+    <%=link_to "#{@user.likes.count}いいね", liking_user_path(@user),class: "text-muted" %>
 
 
   </a>

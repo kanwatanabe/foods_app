@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row row-eq-height">
   <div class="col-md-12">
     <div class="card-group">
       <% @microposts.each do |micropost| %>
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow-sm card_height">
 
           <%# railsで作成した投稿のVIEW %>
           <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225'),micropost if micropost.picture? %>
@@ -18,26 +18,31 @@
                 <%= link_to micropost.user.name, micropost.user ,class: 'text-dark ml-2 mt-1 ml-sm-0',role: 'button'%>
 
                 <!--いいね機能を追加-->
-                <span class="float-right ml-2 d-sm-block" id="micropost-<%= micropost.id %>">
-                  <%= render "likes/like", micropost: micropost %>
-                </span>
+                <!--<span class="float-right ml-2 d-sm-block" id="micropost-<%= micropost.id %>">
+                  <%# <%= render "likes/like", micropost: micropost %> 
+                <%# </span> %>
                 <!-- ------------------------------------------------  -->
 
                 <span
                   class="ml-4 mt-1 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
 
               </div>
+
+
+              <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
+
+              <%# コメント機能のモーダル化 %>
+              <%# <%= react_component("CommentModal", {comments: micropost.comments}) %>
+
+              <%# railsコメント投稿 %>
+              <%# <%=link_to "コメント#{micropost.comments.count}件" ,micropost, class: 'text-dark' %>
             </div>
-
-            <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
-
-            <%# コメント機能のモーダル化 %>
-            <%# <%= react_component("CommentModal", {comments: micropost.comments}) %>
-
-            <%# railsコメント投稿 %>
-            <%=link_to "コメント#{micropost.comments.count}件" ,micropost, class: 'text-dark' %>
-
           </div>
+
+          <%= render "shared/card_footer", micropost: micropost %>
+
+
+
         </div>
       </div>
       <% end %>

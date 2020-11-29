@@ -1,24 +1,25 @@
-<% if !current_user?(micropost.user) %>
+<%# <% if !current_user?(micropost.user) %>
 
-    <% if micropost.good?(current_user) %>
-      <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag type: 'submit', class:'btn ml-2 ml-sm-0 ',role: 'button' do %>
-          <i class="fas fa-heart text-danger fa-fw liking-btn"></i>
-        <% end %>
-        <span class="text-muted"><%=micropost.likes.count%></span>
-      <% end %>
-    <% else %>
-      <%= form_for(micropost.likes.build, remote: true) do |f| %>
-        <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
-        <%= button_tag type: 'submit', class:'btn ml-2 ml-sm-0 ',role: 'button' do %>
-         <i class="far fa-heart text-muted fa-fw like-btn"></i>
-        <% end %>
-         <span class="text-muted"><%= micropost.likes.count %></span>
-        <% end %>
-    <% end %>
-  <% else %>
-   <span class="mt-1 text-muted d-sm-block d-none">
-      <%= "#{micropost.likes.count}いいね" %>
-   </span>
-    
+<% if micropost.good?(current_user) %>
+<%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+<%= button_tag type: 'submit', class:'btn ml-2 ml-sm-0 ',role: 'button' do %>
+<i class="fas fa-heart text-danger fa-fw liking-btn"></i>
+<span class="text-muted"><%=micropost.likes.count%></span>
 <% end %>
+<% end %>
+<% else %>
+<%= form_for(micropost.likes.build, remote: true) do |f| %>
+<div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+<%= button_tag type: 'submit', class:'btn ml-2 ml-sm-0 ',role: 'button' do %>
+<i class="far fa-heart text-muted fa-fw like-btn"></i>
+<span class="text-muted"><%= micropost.likes.count %></span>
+<% end %>
+<% end %>
+<% end %>
+
+<%# <% else %>
+<%# <span class="mt-1 text-muted d-sm-block d-none"> %>
+<%# <%= "#{micropost.likes.count}いいね" %>
+<%# </span> %>
+
+<%# <% end %>
