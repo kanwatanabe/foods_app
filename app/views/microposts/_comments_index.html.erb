@@ -1,6 +1,6 @@
 <% comments.each do |comment| %>
 <div class="col-12 text-left">
-    <%= link_to image_tag(comment.user.image.url, size:"40x40", class:"avatar-type-circle"), comment.user %>
+    <%= link_to image_tag(comment.user.image.url, size:"40x40", class:"avatar-type-circle"), comment.user if comment.user.image.url %>
     <%= comment.user.name %>
     <%= comment.content %>
     <% if comment.user == current_user %>
